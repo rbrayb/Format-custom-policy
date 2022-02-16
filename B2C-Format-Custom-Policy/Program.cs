@@ -19,12 +19,6 @@ namespace B2C_Format_Custom_Policy
             string inputFilePath = args[0];
             string outputFilePath = args[1];
 
-            // This text is always added, making the file longer over time
-            // if it is not deleted.
-            //string appendText = "This is extra text" + Environment.NewLine;
-            //File.AppendAllText(path, appendText, Encoding.UTF8);
-
-            // Open the file to read from.
             string originalText = File.ReadAllText(inputFilePath);
 
             StringBuilder sb = new StringBuilder(originalText);
@@ -48,35 +42,15 @@ namespace B2C_Format_Custom_Policy
             sb.Replace("</OrchestrationStep>", "</OrchestrationStep>" + Environment.NewLine);
             sb.Replace("</UserJourney>", "</UserJourney>" + Environment.NewLine);
             sb.Replace("</UserJourneys>", "</UserJourneys>" + Environment.NewLine);
-            sb.Replace("</SubJourney>", "</SubJourney>" + Environment.NewLine);
-            //sb.Replace("</UserJourney>", "</UserJourney>" + Environment.NewLine);
-            //sb.Replace("</UserJourney>", "</UserJourney>" + Environment.NewLine);
+            sb.Replace("</SubJourney>", "</SubJourney>" + Environment.NewLine);            
 
             formattedText = sb.ToString();
 
-            //formattedText = formattedText + originalText.Replace("</ClaimType>", "</ClaimType>" + Environment.NewLine);
-
-            //formattedText = originalText.Replace("</ClaimsTransformation>", "</ClaimsTransformation>" + Environment.NewLine);
-
-            //formattedText = originalText.Replace("</ClientDefinitions>", "</ClientDefinitions>" + Environment.NewLine);
-
-            //formattedText = originalText.Replace("</ContentDefinition>", "</ContentDefinition>" + Environment.NewLine);
-
-            //formattedText = originalText.Replace("</BuildingBlocks>", "</BuildingBlocks>" + Environment.NewLine);
-
-            //formattedText = originalText.Replace("</TechnicalProfile>", "</TechnicalProfile>" + Environment.NewLine);
-
-            //formattedText = originalText.Replace("</ClaimsProvider>", "</ClaimsProvider>" + Environment.NewLine);
-
-            //formattedText = originalText.Replace("</ClaimsProviders>", "</ClaimsProviders>" + Environment.NewLine);
-
-            //formattedText = originalText.Replace("</OrchestrationStep>", "</OrchestrationStep>" + Environment.NewLine);
-
-            //formattedText = originalText.Replace("</UserJourney>", "</UserJourney>" + Environment.NewLine);           
-
-
             File.WriteAllText(outputFilePath, formattedText, Encoding.UTF8);
-            
+
+            Console.WriteLine("\nProcessing complete. Press any key\n");
+
+            Console.ReadLine();            
 
         }
     }
