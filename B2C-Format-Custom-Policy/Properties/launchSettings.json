@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "B2C-Format-Custom-Policy": {
+      "commandName": "Project",
+      "commandLineArgs": "\"Phone_Email_Base - Copy.xml\" output.txt"
+    }
+  }
+}
